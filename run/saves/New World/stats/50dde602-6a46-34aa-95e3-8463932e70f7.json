@@ -1,0 +1,46 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:iron_golem_spawn_egg": 10,
+      "minecraft:splash_potion": 5,
+      "minecraft:poppy": 75,
+      "minecraft:zombie_villager_spawn_egg": 12,
+      "minecraft:diamond_sword": 37
+    },
+    "minecraft:picked_up": {
+      "minecraft:poppy": 1,
+      "minecraft:white_wool": 2,
+      "minecraft:slime_ball": 39,
+      "minecraft:mutton": 2,
+      "minecraft:iron_ingot": 5
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 12083,
+      "minecraft:walk_one_cm": 15987,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 23,
+      "minecraft:damage_dealt": 2115,
+      "minecraft:play_time": 12083,
+      "minecraft:jump": 117,
+      "minecraft:time_since_death": 12083,
+      "minecraft:drop": 16,
+      "minecraft:sprint_one_cm": 46076,
+      "minecraft:total_world_time": 12102,
+      "minecraft:fly_one_cm": 119147,
+      "minecraft:crouch_one_cm": 475,
+      "minecraft:sneak_time": 129
+    },
+    "minecraft:dropped": {
+      "minecraft:slime_ball": 14,
+      "minecraft:mutton": 1,
+      "minecraft:white_wool": 1
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 20,
+      "minecraft:iron_golem": 1,
+      "minecraft:sheep": 1,
+      "minecraft:villager": 1
+    }
+  },
+  "DataVersion": 4671
+}

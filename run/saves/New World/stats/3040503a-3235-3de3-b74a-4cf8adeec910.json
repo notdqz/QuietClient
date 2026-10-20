@@ -1,0 +1,39 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "minecraft:slime": 76,
+      "minecraft:iron_golem": 4
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 19284,
+      "minecraft:time_since_rest": 8658,
+      "minecraft:walk_one_cm": 29133,
+      "minecraft:total_world_time": 15422,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 53475,
+      "minecraft:mob_kills": 80,
+      "minecraft:play_time": 8658,
+      "minecraft:damage_dealt": 6405,
+      "minecraft:jump": 266,
+      "minecraft:time_since_death": 8658,
+      "minecraft:drop": 31
+    },
+    "minecraft:dropped": {
+      "minecraft:slime_ball": 30,
+      "minecraft:diamond_sword": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:diamond_sword": 1,
+      "minecraft:poppy": 5,
+      "minecraft:slime_ball": 85,
+      "minecraft:iron_ingot": 14
+    },
+    "minecraft:used": {
+      "minecraft:grass_block": 1,
+      "minecraft:iron_golem_spawn_egg": 5,
+      "minecraft:splash_potion": 1,
+      "minecraft:diamond_sword": 134
+    }
+  },
+  "DataVersion": 4671
+}

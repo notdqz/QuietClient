@@ -15,10 +15,9 @@
 	"icon": "assets/quiet/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"com.quiet.Quiet"
-		]
-	},
+	"main": [ "com.quiet.Quiet" ],
+	"client": [ "com.quiet.QuietClient" ]
+},
 	"mixins": [
 		"quiet.mixins.json"
 	],

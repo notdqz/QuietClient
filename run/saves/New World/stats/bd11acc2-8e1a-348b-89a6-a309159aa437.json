@@ -1,0 +1,51 @@
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 14001,
+      "minecraft:walk_one_cm": 46892,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 172,
+      "minecraft:damage_dealt": 4932,
+      "minecraft:play_time": 24646,
+      "minecraft:jump": 333,
+      "minecraft:time_since_death": 13971,
+      "minecraft:sprint_one_cm": 51982,
+      "minecraft:total_world_time": 24969,
+      "minecraft:fly_one_cm": 219619,
+      "minecraft:crouch_one_cm": 10,
+      "minecraft:sneak_time": 102,
+      "minecraft:deaths": 7
+    },
+    "minecraft:used": {
+      "minecraft:grass_block": 1,
+      "minecraft:diamond_helmet": 1,
+      "minecraft:netherite_sword": 13,
+      "minecraft:light": 8,
+      "minecraft:diamond_leggings": 1,
+      "minecraft:diamond_sword": 171,
+      "minecraft:tnt": 16,
+      "minecraft:diamond_chestplate": 1,
+      "minecraft:golden_apple": 1,
+      "minecraft:flint_and_steel": 16,
+      "minecraft:enchanted_golden_apple": 1,
+      "minecraft:dirt": 50,
+      "minecraft:bedrock": 546,
+      "minecraft:diamond_boots": 1
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 169,
+      "minecraft:iron_golem": 1,
+      "minecraft:sheep": 1,
+      "minecraft:villager": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:dirt": 240,
+      "minecraft:white_wool": 1,
+      "minecraft:slime_ball": 168,
+      "minecraft:mutton": 2,
+      "minecraft:iron_ingot": 3,
+      "minecraft:rotten_flesh": 11
+    }
+  },
+  "DataVersion": 4671
+}

@@ -1,0 +1,33 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:grass_block": 5
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 6660,
+      "minecraft:walk_one_cm": 6814,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 4,
+      "minecraft:play_time": 6660,
+      "minecraft:damage_dealt": 245,
+      "minecraft:jump": 46,
+      "minecraft:time_since_death": 6660,
+      "minecraft:drop": 2,
+      "minecraft:sprint_one_cm": 1411,
+      "minecraft:total_world_time": 6959,
+      "minecraft:fly_one_cm": 6373,
+      "minecraft:crouch_one_cm": 1805,
+      "minecraft:sneak_time": 235
+    },
+    "minecraft:picked_up": {
+      "minecraft:slime_ball": 2
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 4
+    },
+    "minecraft:dropped": {
+      "minecraft:slime_ball": 2
+    }
+  },
+  "DataVersion": 4671
+}

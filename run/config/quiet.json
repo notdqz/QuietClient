@@ -1,0 +1,88 @@
+{
+  "darkMode": false,
+  "blur": true,
+  "staff": {},
+  "hud": {
+    "watermark": {
+      "enabled": true,
+      "x": 0.0,
+      "y": 0.05102041
+    },
+    "arraylist": {
+      "enabled": true,
+      "x": 0.9285714,
+      "y": 0.12040816
+    },
+    "targethud": {
+      "enabled": true,
+      "x": 0.375,
+      "y": 0.3
+    },
+    "notifications": {
+      "enabled": true,
+      "x": 0.86,
+      "y": 0.9
+    },
+    "armor": {
+      "enabled": false,
+      "x": 0.90119046,
+      "y": 0.3857143
+    },
+    "potions": {
+      "enabled": true,
+      "x": 0.88809526,
+      "y": 0.057142857
+    },
+    "staffs": {
+      "enabled": false,
+      "x": 0.41309524,
+      "y": 0.08163265
+    },
+    "keybinds": {
+      "enabled": false,
+      "x": 0.84761906,
+      "y": 0.19183673
+    },
+    "coords": {
+      "enabled": false,
+      "x": 0.007142857,
+      "y": 0.15102041
+    },
+    "counters": {
+      "enabled": false,
+      "x": 0.012,
+      "y": 0.42
+    },
+    "fps": {
+      "enabled": true,
+      "x": 0.0,
+      "y": 0.01632653
+    },
+    "ping": {
+      "enabled": true,
+      "x": 0.083333336,
+      "y": 0.01632653
+    },
+    "speed": {
+      "enabled": false,
+      "x": 0.16904762,
+      "y": 0.18979591
+    },
+    "session": {
+      "enabled": false,
+      "x": 0.29166666,
+      "y": 0.02244898
+    },
+    "memory": {
+      "enabled": false,
+      "x": 0.15952381,
+      "y": 0.08571429
+    },
+    "players": {
+      "enabled": false,
+      "x": 0.17,
+      "y": 0.14
+    }
+  },
+  "modules": {}
+}

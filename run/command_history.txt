@@ -1,0 +1,10 @@
+/time set day
+/kill @s
+/kill @a
+/kill @e
+/kill @n
+/kill @p
+/kill @r
+/kill @s
+/kill @e[type=!minecraft:player]
+/time set day
