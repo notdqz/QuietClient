@@ -5,6 +5,15 @@
 	"mixins": [
 		"ExampleMixin"
 	],
+	"client": [
+		"MinecraftAccessor",
+		"LocalPlayerMixin",
+		"EntityMixin",
+		"CameraMixin",
+		"ClientPacketListenerMixin",
+		"MouseHandlerMixin",
+		"LivingEntityRendererMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},

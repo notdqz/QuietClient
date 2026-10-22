@@ -1,0 +1,33 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "minecraft:zombie": 1,
+      "minecraft:skeleton": 2
+    },
+    "minecraft:dropped": {
+      "minecraft:arrow": 4,
+      "minecraft:bone": 2
+    },
+    "minecraft:used": {
+      "minecraft:stone_sword": 7
+    },
+    "minecraft:picked_up": {
+      "minecraft:arrow": 3,
+      "minecraft:bone": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 3703,
+      "minecraft:walk_one_cm": 7556,
+      "minecraft:total_world_time": 3717,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 238,
+      "minecraft:mob_kills": 3,
+      "minecraft:play_time": 3703,
+      "minecraft:damage_dealt": 260,
+      "minecraft:jump": 79,
+      "minecraft:time_since_death": 3703,
+      "minecraft:drop": 6
+    }
+  },
+  "DataVersion": 4671
+}

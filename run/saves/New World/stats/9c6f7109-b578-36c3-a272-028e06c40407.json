@@ -1,0 +1,25 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:grass_block": 196,
+      "minecraft:wooden_sword": 3,
+      "minecraft:diamond_ore": 1,
+      "minecraft:ender_pearl": 4,
+      "minecraft:bow": 10,
+      "minecraft:deepslate_emerald_ore": 1
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 26979,
+      "minecraft:time_since_rest": 31616,
+      "minecraft:walk_one_cm": 28402,
+      "minecraft:total_world_time": 31616,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 65049,
+      "minecraft:play_time": 31616,
+      "minecraft:damage_dealt": 135,
+      "minecraft:jump": 416,
+      "minecraft:time_since_death": 31616
+    }
+  },
+  "DataVersion": 4671
+}

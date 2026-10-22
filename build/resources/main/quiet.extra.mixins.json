@@ -1,0 +1,26 @@
+{
+	"required": true,
+	"package": "com.quiet.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [],
+	"client": [
+		"MinecraftMixin",
+		"MultiPlayerGameModeMixin",
+		"LevelRendererMixin",
+		"CameraAccessor",
+		"EntityGlowMixin",
+		"BlockFaceMixin",
+		"ItemBlockRenderTypesMixin",
+		"ModelBlockRendererMixin",
+		"SkyRendererMixin",
+		"FogRendererMixin",
+		"BackTrackMixin",
+		"BackTrackSyncMixin",
+		"SkyRendererMixin",
+    	"CloudRendererMixin",
+   		"BackgroundRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 0
+	}
+}

@@ -13,7 +13,7 @@ fovEffectScale:1.0
 darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
-graphicsPreset:"fast"
+graphicsPreset:"custom"
 prioritizeChunkUpdates:0
 fullscreen:false
 gamma:0.5
@@ -29,7 +29,7 @@ particles:1
 reducedDebugInfo:false
 renderClouds:"fast"
 cloudRange:32
-renderDistance:8
+renderDistance:12
 simulationDistance:6
 screenEffectScale:1.0
 soundDevice:""
@@ -65,7 +65,7 @@ highContrastBlockOutline:false
 narratorHotkey:true
 resourcePacks:[]
 incompatibleResourcePacks:[]
-lastServer:
+lastServer:pvp.land
 lang:en_us
 chatVisibility:0
 chatOpacity:1.0
@@ -91,7 +91,7 @@ mouseWheelSensitivity:1.0
 rawMouseInput:true
 allowCursorChanges:true
 glDebugVerbosity:1
-skipMultiplayerWarning:false
+skipMultiplayerWarning:true
 hideMatchedNames:true
 joinedFirstServer:false
 syncChunkWrites:true

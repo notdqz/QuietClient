@@ -11,6 +11,9 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.minecraft.client.KeyMapping;
+import com.quiet.render.Overlay;
+//import net.minecraft.client.gui.screens.Overlay;
+
 import org.lwjgl.glfw.GLFW;
 
 public class QuietClient implements ClientModInitializer {
@@ -23,7 +26,8 @@ public class QuietClient implements ClientModInitializer {
 		QuietConfig.load();   // must come after both init() calls
 
 		HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, Quiet.id("hud"),
-				(graphics, delta) -> HudManager.render(graphics));
+		(graphics, delta) -> { Overlay.render(graphics); HudManager.render(graphics); });
+
 
 		KeyMapping.Category category = KeyMapping.Category.register(Quiet.id("general"));
 		openMenu = KeyBindingHelper.registerKeyBinding(new KeyMapping(

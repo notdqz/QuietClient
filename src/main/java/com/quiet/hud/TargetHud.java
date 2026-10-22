@@ -11,6 +11,8 @@ import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 
+import java.util.Locale;
+
 public class TargetHud extends HudWidget {
 	private LivingEntity target, shown, lastShown;
 	private long seen;
@@ -35,6 +37,12 @@ public class TargetHud extends HudWidget {
 		animHealth += (shown.getHealth() - animHealth) * 0.15f;
 	}
 
+	/** 20 -> "20", 5.5 -> "5.5", 0.8 -> "0.8" */
+	private static String fmtHealth(float hp) {
+		if (Math.abs(hp - Math.round(hp)) < 0.05f) return String.valueOf(Math.round(hp));
+		return String.format(Locale.ROOT, "%.1f", hp);
+	}
+
 	@Override
 	public void draw(GuiGraphics g, Theme t, int x, int y) {
 		HudDraw.card(g, t, x, y, w, h, 8);
@@ -47,7 +55,7 @@ public class TargetHud extends HudWidget {
 		}
 		Draw.rect(g, x + 22, y + 2, 0.5f, h - 4, t.panelBorder);
 
-		String hp = String.valueOf(Math.round(shown.getHealth()));
+		String hp = fmtHealth(shown.getHealth());
 		Fonts.drawRight(g, hp, x + w - 6, y + 8, t.panelSub);
 		Fonts.draw(g, Fonts.fit(shown.getName().getString(), w - 28 - 6 - Fonts.width(hp) - 4), x + 28, y + 8, t.panelText);
 

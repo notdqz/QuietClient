@@ -1,0 +1,59 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:stone": 5,
+      "minecraft:stone_sword": 26,
+      "minecraft:wooden_axe": 4,
+      "minecraft:iron_golem_spawn_egg": 4,
+      "minecraft:stripped_oak_log": 46,
+      "minecraft:wooden_sword": 313,
+      "minecraft:totem_of_undying": 2,
+      "minecraft:stone_pickaxe": 5,
+      "minecraft:bedrock": 22,
+      "minecraft:oak_log": 10,
+      "minecraft:cobblestone": 4
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 54,
+      "minecraft:iron_golem": 3,
+      "minecraft:sheep": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:bedrock": 1,
+      "minecraft:stripped_oak_log": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:oak_log": 4,
+      "minecraft:cobblestone": 5,
+      "minecraft:poppy": 4,
+      "minecraft:white_wool": 1,
+      "minecraft:slime_ball": 77,
+      "minecraft:mutton": 2,
+      "minecraft:iron_ingot": 13
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 18544,
+      "minecraft:walk_one_cm": 35413,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 64,
+      "minecraft:damage_taken": 680,
+      "minecraft:damage_dealt": 6598,
+      "minecraft:play_time": 18544,
+      "minecraft:jump": 306,
+      "minecraft:time_since_death": 18544,
+      "minecraft:drop": 2,
+      "minecraft:sprint_one_cm": 62340,
+      "minecraft:fall_one_cm": 8027,
+      "minecraft:total_world_time": 18594,
+      "minecraft:fly_one_cm": 67922,
+      "minecraft:crouch_one_cm": 1364,
+      "minecraft:sneak_time": 404
+    },
+    "minecraft:mined": {
+      "minecraft:oak_log": 4,
+      "minecraft:cobblestone": 1,
+      "minecraft:stone": 4
+    }
+  },
+  "DataVersion": 4671
+}

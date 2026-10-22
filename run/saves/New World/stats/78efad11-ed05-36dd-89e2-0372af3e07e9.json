@@ -1,0 +1,40 @@
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "minecraft:string": 1,
+      "minecraft:arrow": 1,
+      "minecraft:bone": 1,
+      "minecraft:spider_eye": 1
+    },
+    "minecraft:used": {
+      "minecraft:grass_block": 6,
+      "minecraft:stone_sword": 4,
+      "minecraft:wooden_sword": 17,
+      "minecraft:diamond_ore": 1,
+      "minecraft:iron_ore": 1,
+      "minecraft:bow": 2,
+      "minecraft:deepslate_emerald_ore": 1
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 5,
+      "minecraft:skeleton": 1,
+      "minecraft:spider": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 16046,
+      "minecraft:walk_one_cm": 22021,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 7,
+      "minecraft:damage_dealt": 985,
+      "minecraft:play_time": 16046,
+      "minecraft:jump": 354,
+      "minecraft:time_since_death": 16046,
+      "minecraft:sprint_one_cm": 18511,
+      "minecraft:open_chest": 8,
+      "minecraft:total_world_time": 19986,
+      "minecraft:fly_one_cm": 52953,
+      "minecraft:sneak_time": 10
+    }
+  },
+  "DataVersion": 4671
+}

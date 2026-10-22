@@ -18,9 +18,8 @@
 	"main": [ "com.quiet.Quiet" ],
 	"client": [ "com.quiet.QuietClient" ]
 },
-	"mixins": [
-		"quiet.mixins.json"
-	],
+	"mixins": ["quiet.mixins.json", "quiet.extra.mixins.json"],
+	
 	"depends": {
 		"fabricloader": ">=0.19.5",
 		"minecraft": "~1.21.11",

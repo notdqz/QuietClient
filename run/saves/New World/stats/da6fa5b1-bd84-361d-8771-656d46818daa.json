@@ -1,0 +1,56 @@
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "minecraft:slime_ball": 45,
+      "minecraft:arrow": 2,
+      "minecraft:iron_ingot": 9
+    },
+    "minecraft:used": {
+      "minecraft:grass_block": 1210,
+      "minecraft:lava_bucket": 71,
+      "minecraft:water_bucket": 11,
+      "minecraft:iron_golem_spawn_egg": 3,
+      "minecraft:chest": 1,
+      "minecraft:wooden_sword": 94,
+      "minecraft:cobweb": 14,
+      "minecraft:totem_of_undying": 4,
+      "minecraft:potion": 2,
+      "minecraft:dirt": 1,
+      "minecraft:bedrock": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:lava_bucket": 1,
+      "minecraft:water_bucket": 1
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 44,
+      "minecraft:skeleton": 1,
+      "minecraft:iron_golem": 2
+    },
+    "minecraft:custom": {
+      "minecraft:damage_resisted": 504,
+      "minecraft:time_since_rest": 45224,
+      "minecraft:walk_one_cm": 44779,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 47,
+      "minecraft:walk_under_water_one_cm": 1626,
+      "minecraft:damage_taken": 1660,
+      "minecraft:damage_dealt": 3235,
+      "minecraft:play_time": 45224,
+      "minecraft:damage_absorbed": 76,
+      "minecraft:jump": 543,
+      "minecraft:time_since_death": 45224,
+      "minecraft:drop": 2,
+      "minecraft:sprint_one_cm": 68482,
+      "minecraft:open_chest": 2,
+      "minecraft:fall_one_cm": 15950,
+      "minecraft:swim_one_cm": 866,
+      "minecraft:total_world_time": 45591,
+      "minecraft:fly_one_cm": 103421,
+      "minecraft:walk_on_water_one_cm": 7145,
+      "minecraft:crouch_one_cm": 349,
+      "minecraft:sneak_time": 359
+    }
+  },
+  "DataVersion": 4671
+}
