@@ -1,29 +1,3 @@
-/kill @e
-/kill @n
-/kill @p
-/kill @r
-/kill @s
-/kill @e[type=!minecraft:player]
-/time set day
-/gamemode survival
-/gamemode creative
-/kill @e[type=!minecraft:player]
-/time set day
-/weather clear
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/time set night
-/time set day
-/gamemode survival
-/gamemode creative
-/time set day
-/gamemode survival
 /gamemode creative
 /gamemode survival
 /gamemode creative
@@ -47,4 +21,30 @@
 /weather clear
 /time set day
 /time set night
+/time set day
+/time set night
+/time set day
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/time set day
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/weather clear
+/time set day
+/gamemode survival
+/gamemode creative
+/time set day
+/time set night
+/time set day
+/
+/time set day
+/weather clear
+/time set day
+/weather clear
 /time set day

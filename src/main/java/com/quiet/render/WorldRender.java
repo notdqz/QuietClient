@@ -31,10 +31,7 @@ import java.util.List;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
-/**
- * Real in-world drawing (Fabric's custom render pipeline recipe for 1.21.11): one pipeline with the depth test
- * turned off, so boxes and lines show through walls but stay fixed to the world.
- */
+/** In-world drawing with a no-depth-test pipeline, so boxes and lines show through walls but stay fixed to the world. */
 public final class WorldRender {
 	public interface Layer { void extract(WorldBatch b, Minecraft mc, float pt); }
 
@@ -80,7 +77,7 @@ public final class WorldRender {
 			try {
 				e.l().extract(batch, mc, pt);
 			} catch (Throwable t) {
-				Quiet.LOGGER.error("World layer for {} crashed and was disabled", e.m().name(), t);
+				Quiet.LOGGER.error("World layer for {} crashed and was disabled", e.m().name, t);
 				e.m().setEnabled(false);
 			}
 		}
@@ -94,7 +91,6 @@ public final class WorldRender {
 		MeshData.DrawState drawParameters = builtBuffer.drawState();
 		VertexFormat format = drawParameters.format();
 
-		// ---- upload
 		int vertexBufferSize = drawParameters.vertexCount() * format.getVertexSize();
 		if (vertexBuffer == null || vertexBuffer.size() < vertexBufferSize) {
 			if (vertexBuffer != null) vertexBuffer.close();
@@ -108,7 +104,6 @@ public final class WorldRender {
 		}
 		GpuBuffer vertices = vertexBuffer.currentBuffer();
 
-		// ---- draw
 		GpuBuffer indices;
 		VertexFormat.IndexType indexType;
 		if (PIPELINE.getVertexFormatMode() == VertexFormat.Mode.QUADS) {

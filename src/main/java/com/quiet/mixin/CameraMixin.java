@@ -1,8 +1,7 @@
 package com.quiet.mixin;
 
-import com.quiet.module.impl.CameraClip;
-import com.quiet.module.impl.Fullbright;
 import com.quiet.module.impl.FreeLook;
+import com.quiet.module.impl.Fullbright;
 import net.minecraft.client.Camera;
 import net.minecraft.world.level.material.FogType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,20 +12,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Camera.class)
 public abstract class CameraMixin {
-	@ModifyVariable(method = "setRotation", at = @At("HEAD"), argsOnly = true, ordinal = 0, require = 0)
+	@ModifyVariable(method = "setRotation", at = @At("HEAD"), argsOnly = true, ordinal = 0)
 	private float quiet$yaw(float yaw) { return FreeLook.active ? FreeLook.yaw : yaw; }
 
-	@ModifyVariable(method = "setRotation", at = @At("HEAD"), argsOnly = true, ordinal = 1, require = 0)
+	@ModifyVariable(method = "setRotation", at = @At("HEAD"), argsOnly = true, ordinal = 1)
 	private float quiet$pitch(float pitch) { return FreeLook.active ? FreeLook.pitch : pitch; }
 
-	/** Camera Clip: no block collision, and the distance comes from the scroll zoom. */
-	@Inject(method = "getMaxZoom", at = @At("HEAD"), cancellable = true, require = 0)
-	private void quiet$zoom(float maxZoom, CallbackInfoReturnable<Float> cir) {
-		if (CameraClip.active) cir.setReturnValue(CameraClip.distance());
-	}
-
 	/** Fullbright: pretend we're never inside water/lava, so no liquid fog or tint. */
-	@Inject(method = "getFluidInCamera", at = @At("RETURN"), cancellable = true, require = 0)
+	@Inject(method = "getFluidInCamera", at = @At("RETURN"), cancellable = true)
 	private void quiet$fluid(CallbackInfoReturnable<FogType> cir) {
 		FogType t = cir.getReturnValue();
 		if ((t == FogType.WATER || t == FogType.LAVA) && Fullbright.clearFog())

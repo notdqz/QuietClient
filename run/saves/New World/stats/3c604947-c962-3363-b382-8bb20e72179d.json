@@ -1,0 +1,46 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "minecraft:slime": 1,
+      "minecraft:creeper": 1,
+      "minecraft:iron_golem": 1,
+      "minecraft:spider": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:rotten_flesh": 2,
+      "minecraft:torch": 1,
+      "minecraft:spider_eye": 1,
+      "minecraft:string": 2
+    },
+    "minecraft:picked_up": {
+      "minecraft:string": 2,
+      "minecraft:torch": 1,
+      "minecraft:arrow": 2,
+      "minecraft:spider_eye": 1,
+      "minecraft:rotten_flesh": 2
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 16230,
+      "minecraft:walk_one_cm": 20072,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 5,
+      "minecraft:walk_under_water_one_cm": 441,
+      "minecraft:damage_dealt": 874,
+      "minecraft:play_time": 16230,
+      "minecraft:jump": 289,
+      "minecraft:time_since_death": 16230,
+      "minecraft:drop": 6,
+      "minecraft:sprint_one_cm": 24673,
+      "minecraft:swim_one_cm": 631,
+      "minecraft:total_world_time": 16914,
+      "minecraft:fly_one_cm": 58060,
+      "minecraft:walk_on_water_one_cm": 83,
+      "minecraft:crouch_one_cm": 2158,
+      "minecraft:sneak_time": 1241
+    },
+    "minecraft:used": {
+      "minecraft:dirt": 236
+    }
+  },
+  "DataVersion": 4671
+}

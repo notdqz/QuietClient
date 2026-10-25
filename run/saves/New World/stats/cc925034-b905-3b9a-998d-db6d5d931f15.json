@@ -1,0 +1,59 @@
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 10271,
+      "minecraft:walk_one_cm": 6476,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 16,
+      "minecraft:damage_dealt": 2948,
+      "minecraft:play_time": 10271,
+      "minecraft:jump": 125,
+      "minecraft:time_since_death": 10271,
+      "minecraft:drop": 18,
+      "minecraft:sprint_one_cm": 41832,
+      "minecraft:open_chest": 8,
+      "minecraft:total_world_time": 10330,
+      "minecraft:fly_one_cm": 39915,
+      "minecraft:crouch_one_cm": 2344,
+      "minecraft:sneak_time": 1594
+    },
+    "minecraft:picked_up": {
+      "minecraft:porkchop": 2,
+      "minecraft:string": 2,
+      "minecraft:poppy": 2,
+      "minecraft:mutton": 2,
+      "minecraft:gunpowder": 1,
+      "minecraft:arrow": 5,
+      "minecraft:iron_ingot": 3,
+      "minecraft:rotten_flesh": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:poppy": 2,
+      "minecraft:rotten_flesh": 1,
+      "minecraft:arrow": 5,
+      "minecraft:iron_ingot": 3,
+      "minecraft:porkchop": 2,
+      "minecraft:gunpowder": 1,
+      "minecraft:mutton": 2,
+      "minecraft:string": 2
+    },
+    "minecraft:used": {
+      "minecraft:red_sand": 2,
+      "minecraft:netherrack": 52,
+      "minecraft:iron_golem_spawn_egg": 1,
+      "minecraft:poppy": 3,
+      "minecraft:wooden_sword": 86
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 5,
+      "minecraft:zombie": 1,
+      "minecraft:skeleton": 1,
+      "minecraft:creeper": 2,
+      "minecraft:pig": 2,
+      "minecraft:iron_golem": 1,
+      "minecraft:sheep": 3,
+      "minecraft:spider": 1
+    }
+  },
+  "DataVersion": 4671
+}

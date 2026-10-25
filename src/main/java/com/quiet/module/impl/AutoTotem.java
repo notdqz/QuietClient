@@ -2,8 +2,7 @@ package com.quiet.module.impl;
 
 import com.quiet.module.Category;
 import com.quiet.module.Module;
-import com.quiet.module.setting.BooleanSetting;
-import com.quiet.module.setting.NumberSetting;
+import com.quiet.module.Setting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
@@ -16,11 +15,12 @@ import net.minecraft.world.item.Items;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+/** Keeps a totem in your offhand: from the hotbar if you have one there, otherwise by briefly opening the inventory. */
 public class AutoTotem extends Module {
 	private enum St { IDLE, HB_SEND, HB_RESTORE, INV_OPEN, INV_CLOSE }
 
-	private final NumberSetting delay = num("Delay (ticks)", 2, 0, 10, 1);
-	private final BooleanSetting fromInv = bool("Use inventory", true);
+	private final Setting.Num delay = num("Delay (ticks)", 2, 0, 10, 1);
+	private final Setting.Bool fromInv = bool("Use inventory", true);
 	private St st = St.IDLE;
 	private int wait = -1, timer, prevSlot = -1;
 
@@ -29,7 +29,7 @@ public class AutoTotem extends Module {
 	@Override
 	protected void onDisable() { st = St.IDLE; wait = -1; prevSlot = -1; }
 
-	private static int findInv(Inventory inv, int from, int to) {
+	private static int find(Inventory inv, int from, int to) {
 		for (int i = from; i < to; i++) if (inv.getItem(i).is(Items.TOTEM_OF_UNDYING)) return i;
 		return -1;
 	}
@@ -42,7 +42,7 @@ public class AutoTotem extends Module {
 		boolean hasOffhand = p.getOffhandItem().is(Items.TOTEM_OF_UNDYING);
 
 		switch (st) {
-			case HB_SEND -> {   // slot change reached the server last tick, now swap
+			case HB_SEND -> {   // the slot change reached the server last tick, now swap
 				mc.getConnection().send(new ServerboundPlayerActionPacket(
 						ServerboundPlayerActionPacket.Action.SWAP_ITEM_WITH_OFFHAND, BlockPos.ZERO, Direction.DOWN));
 				st = St.HB_RESTORE;
@@ -53,10 +53,10 @@ public class AutoTotem extends Module {
 				prevSlot = -1; st = St.IDLE;
 				return;
 			}
-			case INV_OPEN -> {   // inventory is on screen: pause like a person would, then swap
+			case INV_OPEN -> {
 				if (!(mc.screen instanceof InventoryScreen)) { st = St.IDLE; return; }
 				if (--timer > 0) return;
-				int slot = findInv(inv, 9, 36);
+				int slot = find(inv, 9, 36);
 				if (slot >= 0 && !hasOffhand)
 					mc.gameMode.handleInventoryMouseClick(p.inventoryMenu.containerId, slot, 40, ClickType.SWAP, p);
 				timer = 2 + ThreadLocalRandom.current().nextInt(3);
@@ -65,7 +65,7 @@ public class AutoTotem extends Module {
 			}
 			case INV_CLOSE -> {
 				if (--timer > 0) return;
-				if (mc.screen instanceof InventoryScreen) mc.screen.onClose();   // also tells the server it closed
+				if (mc.screen instanceof InventoryScreen) mc.screen.onClose();
 				st = St.IDLE;
 				return;
 			}
@@ -76,7 +76,7 @@ public class AutoTotem extends Module {
 		if (wait < 0) wait = delay.asInt();
 		if (wait > 0) { wait--; return; }
 
-		int hot = findInv(inv, 0, 9);
+		int hot = find(inv, 0, 9);
 		if (hot >= 0) {
 			prevSlot = inv.getSelectedSlot();
 			inv.setSelectedSlot(hot);
@@ -84,8 +84,8 @@ public class AutoTotem extends Module {
 			wait = -1;
 			return;
 		}
-		if (fromInv.get() && findInv(inv, 9, 36) >= 0) {
-			mc.setScreen(new InventoryScreen(p));          // really opens the inventory
+		if (fromInv.get() && find(inv, 9, 36) >= 0) {
+			mc.setScreen(new InventoryScreen(p));
 			timer = 2 + ThreadLocalRandom.current().nextInt(3);
 			st = St.INV_OPEN;
 			wait = -1;

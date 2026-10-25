@@ -8,13 +8,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/** Swaps in the eased "server" rotation only while the movement packet is being built. */
+/** Swaps in the eased "server" rotation only while the movement packet is being built, then puts your real one back. */
 @Mixin(LocalPlayer.class)
 public abstract class LocalPlayerMixin {
 	@Unique private float quiet$y, quiet$x;
 	@Unique private boolean quiet$swapped;
 
-	@Inject(method = "sendPosition", at = @At("HEAD"), require = 0)
+	@Inject(method = "sendPosition", at = @At("HEAD"))
 	private void quiet$pre(CallbackInfo ci) {
 		LocalPlayer self = (LocalPlayer) (Object) this;
 		float[] r = Rotations.serverRotation(self.getYRot(), self.getXRot());
@@ -26,7 +26,7 @@ public abstract class LocalPlayerMixin {
 		quiet$swapped = true;
 	}
 
-	@Inject(method = "sendPosition", at = @At("RETURN"), require = 0)
+	@Inject(method = "sendPosition", at = @At("RETURN"))
 	private void quiet$post(CallbackInfo ci) {
 		if (!quiet$swapped) return;
 		LocalPlayer self = (LocalPlayer) (Object) this;

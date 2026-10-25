@@ -3,25 +3,20 @@ package com.quiet.module.impl;
 import net.minecraft.util.Mth;
 
 /**
- * Server rotation: what the movement packets say you're looking at. It eases toward the target over a few
- * ticks and eases back to your real view afterwards (no instant snap).
- * Visual rotation: the same eased value, drawn on YOUR model only. Your real yaw/pitch are never touched.
+ * Server-side rotation: what the movement packets say you are looking at. It eases toward the target over a few
+ * ticks, holds, then eases back to your real view (no instant snap). Your own camera is never touched.
+ * LocalPlayerMixin swaps these values in only while the movement packet is being built.
  */
 public final class Rotations {
 	private static float tgtYaw, tgtPitch, curYaw, curPitch;
 	private static int hold;
-	private static boolean engaged, first, showVisual;
+	private static boolean engaged, first;
 
-	private static float sYaw, sPitch;
-	private static boolean smoothing;
-	private static long lastNs;
-
-	public static void set(float y, float p, int ticks) { set(y, p, ticks, true); }
-
-	public static void set(float y, float p, int ticks, boolean visual) {
-		tgtYaw = y; tgtPitch = Mth.clamp(p, -90f, 90f);
+	/** Ask the server to see this rotation for the next `ticks` ticks. */
+	public static void set(float yaw, float pitch, int ticks) {
+		tgtYaw = yaw;
+		tgtPitch = Mth.clamp(pitch, -90f, 90f);
 		hold = Math.max(1, ticks);
-		showVisual = visual;
 		if (!engaged) { engaged = true; first = true; }
 	}
 
@@ -42,27 +37,8 @@ public final class Rotations {
 		return new float[]{curYaw, curPitch};
 	}
 
-	/** True once the sent rotation is within tol degrees of the target. */
-	public static boolean closeTo(float y, float p, float tol) {
-		return engaged && !first && Math.abs(Mth.wrapDegrees(y - curYaw)) < tol && Math.abs(p - curPitch) < tol;
-	}
-
-	/** Smoothed {headYaw, pitch} for drawing your own model, or null when nothing should be shown. */
-	public static float[] visual(float realHeadYaw, float realPitch) {
-		long now = System.nanoTime();
-		float dt = lastNs == 0 ? 0.016f : Mth.clamp((now - lastNs) / 1.0E9f, 0f, 0.1f);
-		lastNs = now;
-
-		boolean want = engaged && showVisual && !first;
-		if (!want && !smoothing) return null;
-		if (!smoothing) { sYaw = realHeadYaw; sPitch = realPitch; smoothing = true; }
-
-		float ty = want ? curYaw : realHeadYaw, tp = want ? curPitch : realPitch;
-		float a = 1f - (float) Math.exp(-dt * 16f);
-		sYaw += Mth.wrapDegrees(ty - sYaw) * a;
-		sPitch += (tp - sPitch) * a;
-		if (!want && Math.abs(Mth.wrapDegrees(realHeadYaw - sYaw)) < 0.6f && Math.abs(realPitch - sPitch) < 0.6f)
-			smoothing = false;
-		return new float[]{sYaw, sPitch};
+	/** True once the rotation the server has seen is within tol degrees of the target. */
+	public static boolean closeTo(float yaw, float pitch, float tol) {
+		return engaged && !first && Math.abs(Mth.wrapDegrees(yaw - curYaw)) < tol && Math.abs(pitch - curPitch) < tol;
 	}
 }

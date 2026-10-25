@@ -1,0 +1,25 @@
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 6867,
+      "minecraft:time_since_rest": 2544,
+      "minecraft:walk_one_cm": 2832,
+      "minecraft:total_world_time": 2544,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 13823,
+      "minecraft:crouch_one_cm": 635,
+      "minecraft:sneak_time": 494,
+      "minecraft:play_time": 2544,
+      "minecraft:jump": 42,
+      "minecraft:time_since_death": 2544,
+      "minecraft:drop": 1
+    },
+    "minecraft:used": {
+      "minecraft:grass_block": 11
+    },
+    "minecraft:dropped": {
+      "minecraft:netherrack": 1
+    }
+  },
+  "DataVersion": 4671
+}

@@ -1,0 +1,25 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:spider_spawn_egg": 1,
+      "minecraft:dirt": 187
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 6239,
+      "minecraft:walk_one_cm": 14770,
+      "minecraft:leave_game": 1,
+      "minecraft:damage_taken": 60,
+      "minecraft:play_time": 6239,
+      "minecraft:damage_dealt": 155,
+      "minecraft:jump": 65,
+      "minecraft:time_since_death": 6239,
+      "minecraft:sprint_one_cm": 8530,
+      "minecraft:fall_one_cm": 260,
+      "minecraft:total_world_time": 7843,
+      "minecraft:fly_one_cm": 51194,
+      "minecraft:crouch_one_cm": 3952,
+      "minecraft:sneak_time": 1009
+    }
+  },
+  "DataVersion": 4671
+}

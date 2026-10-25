@@ -12,7 +12,7 @@ public class FreeLook extends Module {
 	public static float yaw, pitch;
 	private CameraType prevCam;
 
-	public FreeLook() { super("Free Look", Category.MISC); }
+	public FreeLook() { super("Free Look", Category.VISUAL); }
 
 	public static void turn(double dYaw, double dPitch) {
 		yaw += (float) dYaw * 0.15f;

@@ -1,0 +1,32 @@
+{
+  "stats": {
+    "minecraft:dropped": {
+      "minecraft:slime_ball": 1
+    },
+    "minecraft:killed": {
+      "minecraft:slime": 4
+    },
+    "minecraft:used": {
+      "minecraft:stone_sword": 4
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 7300,
+      "minecraft:walk_one_cm": 6196,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 4,
+      "minecraft:play_time": 7300,
+      "minecraft:damage_dealt": 100,
+      "minecraft:jump": 210,
+      "minecraft:time_since_death": 7300,
+      "minecraft:drop": 1,
+      "minecraft:sprint_one_cm": 5184,
+      "minecraft:total_world_time": 7311,
+      "minecraft:fly_one_cm": 28905,
+      "minecraft:sneak_time": 13
+    },
+    "minecraft:picked_up": {
+      "minecraft:slime_ball": 3
+    }
+  },
+  "DataVersion": 4671
+}

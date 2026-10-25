@@ -2,21 +2,22 @@ package com.quiet.module.impl;
 
 import com.quiet.module.Category;
 import com.quiet.module.Module;
-import com.quiet.module.setting.BooleanSetting;
+import com.quiet.module.Setting;
+import com.quiet.module.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
+/** Picks the fastest hotbar tool for the block you're mining. */
 public class AutoTool extends Module {
-	private final BooleanSetting swapBack = bool("Swap back", true);
+	private final Setting.Bool swapBack = bool("Swap back", true);
 	private int prev = -1;
 
 	public AutoTool() { super("Auto Tool", Category.PLAYER); }
 
-	@Override
-	protected void onDisable() { restore(); }
+	@Override protected void onDisable() { restore(); }
 
 	private void restore() {
 		Minecraft mc = mc();
@@ -27,7 +28,7 @@ public class AutoTool extends Module {
 	@Override
 	protected void onTick() {
 		Minecraft mc = mc();
-		boolean mining = ModUtil.canAct(mc) && mc.options.keyAttack.isDown()
+		boolean mining = Util.canAct(mc) && mc.options.keyAttack.isDown()
 				&& mc.hitResult instanceof BlockHitResult bhr && bhr.getType() == HitResult.Type.BLOCK;
 		if (!mining) { if (swapBack.get()) restore(); else prev = -1; return; }
 

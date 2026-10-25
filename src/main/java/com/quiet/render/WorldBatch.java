@@ -5,26 +5,19 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4fc;
 
-/**
- * Collects quads in WORLD space for one frame. Everything added here is drawn by WorldRender through walls,
- * so boxes and lines are stuck to the thing they mark instead of floating on the screen.
- */
+/** Collects quads in WORLD space for one frame; WorldRender draws them through walls, fixed to the world. */
 public final class WorldBatch {
 	private final BufferBuilder buf;
 	private final Matrix4fc pose;
 	private final Vec3 cam;
-	private int verts;
 
 	WorldBatch(BufferBuilder buf, Matrix4fc pose, Vec3 cam) { this.buf = buf; this.pose = pose; this.cam = cam; }
 
-	int vertexCount() { return verts; }
-
 	private void vtx(double x, double y, double z, float r, float g, float b, float a) {
 		buf.addVertex(pose, (float) (x - cam.x), (float) (y - cam.y), (float) (z - cam.z)).setColor(r, g, b, a);
-		verts++;
 	}
 
-	private void quad(Vec3 p0, Vec3 p1, Vec3 p2, Vec3 p3, int argb) {
+	public void quad(Vec3 p0, Vec3 p1, Vec3 p2, Vec3 p3, int argb) {
 		float a = (argb >>> 24 & 0xFF) / 255f, r = (argb >> 16 & 0xFF) / 255f, g = (argb >> 8 & 0xFF) / 255f, b = (argb & 0xFF) / 255f;
 		vtx(p0.x, p0.y, p0.z, r, g, b, a);
 		vtx(p1.x, p1.y, p1.z, r, g, b, a);
@@ -39,12 +32,12 @@ public final class WorldBatch {
 	/** Translucent solid box. */
 	public void fillBox(AABB bx, int argb) {
 		double x0 = bx.minX, y0 = bx.minY, z0 = bx.minZ, x1 = bx.maxX, y1 = bx.maxY, z1 = bx.maxZ;
-		quad(new Vec3(x0, y0, z1), new Vec3(x1, y0, z1), new Vec3(x1, y1, z1), new Vec3(x0, y1, z1), argb);   // front
-		quad(new Vec3(x1, y0, z0), new Vec3(x0, y0, z0), new Vec3(x0, y1, z0), new Vec3(x1, y1, z0), argb);   // back
-		quad(new Vec3(x0, y0, z0), new Vec3(x0, y0, z1), new Vec3(x0, y1, z1), new Vec3(x0, y1, z0), argb);   // left
-		quad(new Vec3(x1, y0, z1), new Vec3(x1, y0, z0), new Vec3(x1, y1, z0), new Vec3(x1, y1, z1), argb);   // right
-		quad(new Vec3(x0, y1, z1), new Vec3(x1, y1, z1), new Vec3(x1, y1, z0), new Vec3(x0, y1, z0), argb);   // top
-		quad(new Vec3(x0, y0, z0), new Vec3(x1, y0, z0), new Vec3(x1, y0, z1), new Vec3(x0, y0, z1), argb);   // bottom
+		quad(new Vec3(x0, y0, z1), new Vec3(x1, y0, z1), new Vec3(x1, y1, z1), new Vec3(x0, y1, z1), argb);
+		quad(new Vec3(x1, y0, z0), new Vec3(x0, y0, z0), new Vec3(x0, y1, z0), new Vec3(x1, y1, z0), argb);
+		quad(new Vec3(x0, y0, z0), new Vec3(x0, y0, z1), new Vec3(x0, y1, z1), new Vec3(x0, y1, z0), argb);
+		quad(new Vec3(x1, y0, z1), new Vec3(x1, y0, z0), new Vec3(x1, y1, z0), new Vec3(x1, y1, z1), argb);
+		quad(new Vec3(x0, y1, z1), new Vec3(x1, y1, z1), new Vec3(x1, y1, z0), new Vec3(x0, y1, z0), argb);
+		quad(new Vec3(x0, y0, z0), new Vec3(x1, y0, z0), new Vec3(x1, y0, z1), new Vec3(x0, y0, z1), argb);
 	}
 
 	/** A line drawn as a thin ribbon that always faces the camera; `pixels` is roughly its on-screen thickness. */
@@ -61,16 +54,28 @@ public final class WorldBatch {
 		quad(b1, b2, a2, a1, argb);     // second winding so it shows from both sides
 	}
 
-	/** The 12 edges of a box. */
-	public void edgeBox(AABB bx, int argb, float pixels) {
-		for (int i = 0; i < 8; i++)
-			for (int j = i + 1; j < 8; j++)
-				if (Integer.bitCount(i ^ j) == 1) line(corner(bx, i), corner(bx, j), argb, pixels);
-	}
-
 	/** Filled box plus outline in one call. */
 	public void highlight(AABB bx, int edgeArgb, int fillArgb, float pixels) {
 		if ((fillArgb >>> 24) != 0) fillBox(bx, fillArgb);
 		edgeBox(bx, edgeArgb, pixels);
+	}
+
+	/** Corner index pairs of a box's 12 edges (two corners differ in exactly one axis), worked out once. */
+	private static final int[][] EDGES = buildEdges();
+
+	private static int[][] buildEdges() {
+		int[][] e = new int[12][2];
+		int n = 0;
+		for (int i = 0; i < 8; i++)
+			for (int j = i + 1; j < 8; j++)
+				if (Integer.bitCount(i ^ j) == 1) { e[n][0] = i; e[n][1] = j; n++; }
+		return e;
+	}
+
+	/** The 12 edges of a box. */
+	public void edgeBox(AABB bx, int argb, float pixels) {
+		Vec3[] c = new Vec3[8];
+		for (int i = 0; i < 8; i++) c[i] = corner(bx, i);
+		for (int[] e : EDGES) line(c[e[0]], c[e[1]], argb, pixels);
 	}
 }

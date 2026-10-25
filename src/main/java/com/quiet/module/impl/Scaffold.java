@@ -2,8 +2,8 @@ package com.quiet.module.impl;
 
 import com.quiet.module.Category;
 import com.quiet.module.Module;
-import com.quiet.module.setting.ModeSetting;
-import com.quiet.module.setting.NumberSetting;
+import com.quiet.module.Setting;
+import com.quiet.module.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
@@ -20,21 +20,36 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-public class Scaffold extends Module {
-	private final NumberSetting delay = num("Delay (ticks)", 0, 0, 5, 1);
-	private final ModeSetting rotation = mode("Rotation", "Server + Visual", "Off", "Server", "Server + Visual");
-	private int cd, prevSlot = -1;
+import java.util.concurrent.ThreadLocalRandom;
 
-	private static final double[] SAMPLES = {0, 0.3, -0.3};
+/**
+ * Places blocks under you as you walk off an edge. Your camera never moves.
+ * To look natural to the server it turns your SERVER-side view toward the block face with eased steps (never a snap),
+ * places only once that view has actually arrived, waits a random time between blocks, and aims at a slightly
+ * different spot on each block. Every placement uses a real ray that really hits that face within reach.
+ */
+public class Scaffold extends Module {
+	private static final double[][] SAMPLES = {
+		{0, 0}, {0.3, 0}, {-0.3, 0}, {0, 0.3}, {0, -0.3}, {0.3, 0.3}, {0.3, -0.3}, {-0.3, 0.3}, {-0.3, -0.3}
+	};
+	private static final int MAX_WAIT_TICKS = 4;   // if the eased turn is slow, place anyway after this many ticks
+
+	private final Setting.Num minDelay = num("Min delay (ms)", 60, 0, 300, 10);
+	private final Setting.Num maxDelay = num("Max delay (ms)", 140, 0, 300, 10);
+	private final Setting.Mode rotation = mode("Rotation", "Server", "Off", "Server");
+	private final Setting.Bool swapBack = bool("Swap back", true);
+
+	private int prevSlot = -1, sampleStart, waitTicks;
+	private long nextPlace;
 
 	public Scaffold() { super("Scaffold", Category.MOVEMENT); }
 
 	@Override
 	protected void onDisable() {
 		Minecraft mc = mc();
-		if (prevSlot >= 0 && mc.player != null) mc.player.getInventory().setSelectedSlot(prevSlot);
+		if (swapBack.get() && prevSlot >= 0 && mc.player != null) mc.player.getInventory().setSelectedSlot(prevSlot);
 		prevSlot = -1;
-		cd = 0;
+		waitTicks = 0;
 	}
 
 	private boolean usable(Minecraft mc, ItemStack s) {
@@ -54,27 +69,20 @@ public class Scaffold extends Module {
 		return s.isAir() || s.canBeReplaced();
 	}
 
-	/**
-	 * Casts real rays from the eye at several points on one face of `nb`. Only a ray that actually
-	 * hits that block, on that face, within block reach counts, so it never places on a hidden face
-	 * or from out of reach.
-	 */
+	/** Real rays from the eye at points on one face of nb; returns one that really hits that block on that face, within reach. */
 	private BlockHitResult findFace(Minecraft mc, LocalPlayer p, Vec3 eye, BlockPos nb, Direction face, double reach) {
 		Vec3 c = Vec3.atCenterOf(nb).add(face.getStepX() * 0.5, face.getStepY() * 0.5, face.getStepZ() * 0.5);
 		Direction.Axis ax = face.getAxis();
 		Vec3 a1 = ax == Direction.Axis.X ? new Vec3(0, 1, 0) : new Vec3(1, 0, 0);
 		Vec3 a2 = ax == Direction.Axis.Z ? new Vec3(0, 1, 0) : new Vec3(0, 0, 1);
-		for (double u : SAMPLES) {
-			for (double w : SAMPLES) {
-				Vec3 pt = c.add(a1.scale(u)).add(a2.scale(w));
-				Vec3 dir = pt.subtract(eye);
-				if (dir.lengthSqr() < 1.0E-6) continue;
-				Vec3 end = eye.add(dir.normalize().scale(reach));
-				BlockHitResult hr = mc.level.clip(new ClipContext(eye, end,
-						ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, p));
-				if (hr.getType() == HitResult.Type.BLOCK && hr.getBlockPos().equals(nb) && hr.getDirection() == face)
-					return hr;
-			}
+		for (int n = 0; n < SAMPLES.length; n++) {
+			double[] s = SAMPLES[(sampleStart + n) % SAMPLES.length];
+			Vec3 pt = c.add(a1.scale(s[0])).add(a2.scale(s[1]));
+			Vec3 dir = pt.subtract(eye);
+			if (dir.lengthSqr() < 1.0E-6) continue;
+			Vec3 end = eye.add(dir.normalize().scale(reach));
+			BlockHitResult hr = mc.level.clip(new ClipContext(eye, end, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, p));
+			if (hr.getType() == HitResult.Type.BLOCK && hr.getBlockPos().equals(nb) && hr.getDirection() == face) return hr;
 		}
 		return null;
 	}
@@ -83,8 +91,8 @@ public class Scaffold extends Module {
 	protected void onTick() {
 		Minecraft mc = mc();
 		LocalPlayer p = mc.player;
-		if (!ModUtil.canAct(mc) || p.getAbilities().flying) return;
-		if (cd > 0) { cd--; return; }
+		if (!Util.canAct(mc) || p.getAbilities().flying) { waitTicks = 0; return; }
+		if (System.currentTimeMillis() < nextPlace) return;
 
 		Vec3 v = p.getDeltaMovement();
 		BlockPos[] targets = {
@@ -110,15 +118,25 @@ public class Scaffold extends Module {
 					if (prevSlot < 0) prevSlot = inv.getSelectedSlot();
 					inv.setSelectedSlot(slot);
 				}
-				if (!rotation.is("Off")) {
-					float[] r = ModUtil.rotTo(eye, hr.getLocation());
-					Rotations.set(r[0], r[1], 1, rotation.is("Server + Visual"));
+
+				// ease the server-side view toward the face first; place once it has arrived
+				if (rotation.is("Server")) {
+					float[] r = Util.rotTo(eye, hr.getLocation());
+					Rotations.set(r[0], r[1], 2);
+					if (!Rotations.closeTo(r[0], r[1], 10f) && ++waitTicks <= MAX_WAIT_TICKS) return;
 				}
+				waitTicks = 0;
+
 				mc.gameMode.useItemOn(p, InteractionHand.MAIN_HAND, hr);
 				p.swing(InteractionHand.MAIN_HAND);
-				cd = delay.asInt();
+
+				ThreadLocalRandom rnd = ThreadLocalRandom.current();
+				long lo = (long) Math.min(minDelay.get(), maxDelay.get()), hi = (long) Math.max(minDelay.get(), maxDelay.get());
+				nextPlace = System.currentTimeMillis() + lo + (long) (rnd.nextDouble() * (hi - lo));
+				sampleStart = rnd.nextInt(SAMPLES.length);   // aim a slightly different spot on the next block
 				return;
 			}
 		}
+		waitTicks = 0;
 	}
 }

@@ -1,23 +1,20 @@
+
 {
-	"required": true,
-	"package": "com.quiet.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ExampleMixin"
-	],
-	"client": [
-		"MinecraftAccessor",
-		"LocalPlayerMixin",
-		"EntityMixin",
-		"CameraMixin",
-		"ClientPacketListenerMixin",
-		"MouseHandlerMixin",
-		"LivingEntityRendererMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
-	}
+  "required": true,
+  "package": "com.quiet.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "EntityMixin",
+    "LocalPlayerMixin",
+    "CameraMixin",
+    "ClientPacketListenerMixin",
+    "MultiPlayerGameModeMixin",
+    "PostChainAccessorMixin",
+    "PostPassAccessorMixin",
+    "GameRendererAccessorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

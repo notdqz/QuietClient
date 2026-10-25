@@ -1,0 +1,37 @@
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "minecraft:string": 3,
+      "minecraft:slime_ball": 14,
+      "minecraft:gunpowder": 3,
+      "minecraft:iron_ingot": 3,
+      "minecraft:rotten_flesh": 1
+    },
+    "minecraft:killed": {
+      "minecraft:zombie": 1,
+      "minecraft:slime": 50,
+      "minecraft:creeper": 6,
+      "minecraft:iron_golem": 1,
+      "minecraft:spider": 2
+    },
+    "minecraft:used": {
+      "minecraft:wooden_axe": 17,
+      "minecraft:iron_golem_spawn_egg": 1,
+      "minecraft:wooden_sword": 205
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 17515,
+      "minecraft:time_since_rest": 8604,
+      "minecraft:walk_one_cm": 43598,
+      "minecraft:total_world_time": 8639,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 32367,
+      "minecraft:mob_kills": 60,
+      "minecraft:play_time": 8604,
+      "minecraft:damage_dealt": 5938,
+      "minecraft:jump": 131,
+      "minecraft:time_since_death": 8604
+    }
+  },
+  "DataVersion": 4671
+}

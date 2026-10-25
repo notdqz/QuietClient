@@ -2,18 +2,18 @@ package com.quiet.module.impl;
 
 import com.quiet.module.Category;
 import com.quiet.module.Module;
-import com.quiet.module.setting.BooleanSetting;
+import com.quiet.module.Setting;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
-/** Client-side night vision (never sent to the server) + optional removal of water/lava fog (CameraMixin). */
+/** Client-side night vision (never sent to the server), plus optional removal of water/lava fog (CameraMixin). */
 public class Fullbright extends Module {
 	private static Fullbright inst;
-	private final BooleanSetting clearFog = bool("Clear water/lava fog", true);
+	private final Setting.Bool clearFog = bool("Clear water/lava fog", true);
 	private boolean added;
 
-	public Fullbright() { super("Fullbright", Category.RENDER); inst = this; }
+	public Fullbright() { super("Fullbright", Category.VISUAL); inst = this; }
 
 	public static boolean clearFog() { return inst != null && inst.isEnabled() && inst.clearFog.get(); }
 

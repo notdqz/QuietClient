@@ -1,0 +1,23 @@
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 1395,
+      "minecraft:open_chest": 10,
+      "minecraft:time_since_rest": 2622,
+      "minecraft:walk_one_cm": 1006,
+      "minecraft:total_world_time": 2629,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 12877,
+      "minecraft:play_time": 2622,
+      "minecraft:damage_dealt": 10,
+      "minecraft:open_shulker_box": 5,
+      "minecraft:jump": 1,
+      "minecraft:time_since_death": 2622
+    },
+    "minecraft:used": {
+      "minecraft:chest": 1,
+      "minecraft:gray_shulker_box": 1
+    }
+  },
+  "DataVersion": 4671
+}

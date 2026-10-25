@@ -1,0 +1,24 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "minecraft:slime": 11
+    },
+    "minecraft:used": {
+      "minecraft:stone_sword": 18
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 3134,
+      "minecraft:time_since_rest": 3388,
+      "minecraft:walk_one_cm": 6869,
+      "minecraft:total_world_time": 3520,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 8782,
+      "minecraft:mob_kills": 11,
+      "minecraft:play_time": 3388,
+      "minecraft:damage_dealt": 740,
+      "minecraft:jump": 72,
+      "minecraft:time_since_death": 3388
+    }
+  },
+  "DataVersion": 4671
+}

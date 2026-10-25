@@ -1,0 +1,39 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "minecraft:slime": 7,
+      "minecraft:iron_golem": 3
+    },
+    "minecraft:picked_up": {
+      "minecraft:poppy": 3,
+      "minecraft:iron_ingot": 11
+    },
+    "minecraft:used": {
+      "minecraft:grass_block": 2,
+      "minecraft:wooden_axe": 10,
+      "minecraft:netherrack": 49,
+      "minecraft:iron_golem_spawn_egg": 3,
+      "minecraft:wooden_sword": 75,
+      "minecraft:wooden_spear": 11,
+      "minecraft:mace": 18
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 23932,
+      "minecraft:walk_one_cm": 12882,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 10,
+      "minecraft:walk_under_water_one_cm": 397,
+      "minecraft:damage_dealt": 3944,
+      "minecraft:play_time": 23932,
+      "minecraft:jump": 122,
+      "minecraft:time_since_death": 23932,
+      "minecraft:sprint_one_cm": 40310,
+      "minecraft:total_world_time": 32549,
+      "minecraft:fly_one_cm": 44230,
+      "minecraft:walk_on_water_one_cm": 305,
+      "minecraft:crouch_one_cm": 2378,
+      "minecraft:sneak_time": 737
+    }
+  },
+  "DataVersion": 4671
+}

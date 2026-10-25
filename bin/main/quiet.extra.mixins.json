@@ -16,8 +16,7 @@
 		"FogRendererMixin",
 		"BackTrackMixin",
 		"BackTrackSyncMixin",
-		"SkyRendererMixin",
-    	"CloudRendererMixin"
+		"CloudRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 0

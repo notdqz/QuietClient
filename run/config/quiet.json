@@ -1,98 +1,18 @@
 {
-  "darkMode": true,
-  "blur": true,
-  "staff": {},
-  "hud": {
-    "watermark": {
-      "enabled": true,
-      "x": 0.0,
-      "y": 0.05102041
-    },
-    "arraylist": {
-      "enabled": true,
-      "x": 0.9285714,
-      "y": 0.37755102
-    },
-    "targethud": {
-      "enabled": true,
-      "x": 0.375,
-      "y": 0.3
-    },
-    "notifications": {
-      "enabled": true,
-      "x": 0.86,
-      "y": 0.9
-    },
-    "armor": {
-      "enabled": true,
-      "x": 0.0,
-      "y": 0.37959182
-    },
-    "potions": {
-      "enabled": true,
-      "x": 0.8630952,
-      "y": 0.0
-    },
-    "staffs": {
-      "enabled": false,
-      "x": 0.41309524,
-      "y": 0.08163265
-    },
-    "keybinds": {
-      "enabled": true,
-      "x": 0.89285713,
-      "y": 0.12653062
-    },
-    "coords": {
-      "enabled": false,
-      "x": 0.007142857,
-      "y": 0.15102041
-    },
-    "counters": {
-      "enabled": false,
-      "x": 0.012,
-      "y": 0.42
-    },
-    "fps": {
-      "enabled": true,
-      "x": 0.0,
-      "y": 0.01632653
-    },
-    "ping": {
-      "enabled": true,
-      "x": 0.083333336,
-      "y": 0.01632653
-    },
-    "speed": {
-      "enabled": true,
-      "x": 0.0,
-      "y": 0.33877552
-    },
-    "session": {
-      "enabled": false,
-      "x": 0.29166666,
-      "y": 0.02244898
-    },
-    "memory": {
-      "enabled": false,
-      "x": 0.15952381,
-      "y": 0.08571429
-    },
-    "players": {
-      "enabled": false,
-      "x": 0.17,
-      "y": 0.14
-    }
+  "arraylist": true,
+  "menu": {
+    "x": 130,
+    "y": 107,
+    "tab": 3
   },
   "modules": {
     "Auto Clicker": {
       "key": -1,
       "settings": {
         "Mode": "Cooldown",
-        "Min CPS": 20.0,
-        "Max CPS": 20.0,
-        "Cooldown": 0.9199999999999999,
-        "Crits only": false
+        "CPS": 20.0,
+        "Cooldown %": 87.0,
+        "Deviation %": 50.0
       }
     },
     "Aim Assist": {
@@ -100,39 +20,48 @@
       "settings": {
         "Range": 4.5,
         "FOV": 90.0,
-        "Smoothing": 10.0,
-        "Aim at": "Head",
-        "Click only": false
-      }
-    },
-    "Triggerbot": {
-      "key": -1,
-      "settings": {
-        "Cooldown": 0.9199999999999999,
-        "Reaction (ticks)": 0.0,
-        "Crits only": true
+        "Strength": 40.0,
+        "Aim at": "Body",
+        "Only while attacking": false
       }
     },
     "Reach": {
       "key": -1,
       "settings": {
-        "Entity reach": 6.0,
-        "Also blocks": false,
-        "Block reach": 8.0
+        "Reach": 3.0
       }
     },
-    "WTap": {
+    "Triggerbot": {
       "key": -1,
       "settings": {
-        "Release ticks": 1.0,
-        "Chance %": 100.0
+        "Min reaction (ms)": 60.0,
+        "Max reaction (ms)": 140.0,
+        "Cooldown": 0.89,
+        "Max CPS": 10.0
       }
     },
-    "STap": {
+    "Velocity": {
       "key": -1,
       "settings": {
+        "Horizontal %": 20.0,
+        "Vertical %": 20.0
+      }
+    },
+    "Key Tap": {
+      "key": -1,
+      "settings": {
+        "Mode": "S-Tap",
         "Tap ticks": 2.0,
         "Chance %": 100.0
+      }
+    },
+    "BackTrack": {
+      "key": -1,
+      "settings": {
+        "Delay (ms)": 120.0,
+        "Range": 4.5,
+        "Show real position": true,
+        "Box color": "Red"
       }
     },
     "Auto Totem": {
@@ -142,62 +71,7 @@
         "Use inventory": true
       }
     },
-    "Silent Aim": {
-      "key": -1,
-      "settings": {
-        "Range": 3.0,
-        "FOV": 180.0,
-        "Aim at": "Head",
-        "Visible only": true,
-        "Turn before hit": true,
-        "Aim jitter": false
-      }
-    },
-    "Velocity": {
-      "key": -1,
-      "settings": {
-        "Mode": "Cancel",
-        "Horizontal %": 60.0,
-        "Vertical %": 100.0,
-        "Delay (ms)": 500.0
-      }
-    },
-    "KillBot": {
-      "key": -1,
-      "settings": {
-        "Search range": 24.0,
-        "Target": "Nearest",
-        "Circle distance": 2.0,
-        "Circle strafe": true,
-        "Bhop": true,
-        "Crits": true,
-        "Avoid edges": true,
-        "Aim speed": 80.0
-      }
-    },
-    "Knockback Flick": {
-      "key": -1,
-      "settings": {
-        "Push target": "Right",
-        "Chance %": 100.0,
-        "Players only": false
-      }
-    },
-    "BackTrack": {
-      "key": -1,
-      "settings": {
-        "Delay (ms)": 120.0,
-        "Range": 6.0,
-        "Smart release": true,
-        "Render server pos": true,
-        "Box color": "Red"
-      }
-    },
-    "Auto Sprint": {
-      "key": -1,
-      "settings": {}
-    },
-    "Bhop": {
+    "Sprint": {
       "key": -1,
       "settings": {}
     },
@@ -208,135 +82,10 @@
     "Scaffold": {
       "key": -1,
       "settings": {
-        "Delay (ticks)": 0.0,
-        "Rotation": "Server + Visual"
-      }
-    },
-    "NoFall": {
-      "key": -1,
-      "settings": {
-        "Fall distance": 3.0
-      }
-    },
-    "No Slow": {
-      "key": -1,
-      "settings": {
-        "Webs \u0026 bushes": true,
-        "Water": true,
-        "Lava": true,
-        "Liquid speed (b/s)": 4.300000000000001
-      }
-    },
-    "Fullbright": {
-      "key": -1,
-      "settings": {
-        "Clear water/lava fog": true
-      }
-    },
-    "Camera Clip": {
-      "key": -1,
-      "settings": {
-        "Zoom key": "Off",
-        "Scroll step": 2.0,
-        "Max distance": 100.0
-      }
-    },
-    "Player ESP": {
-      "key": -1,
-      "settings": {
-        "Style": "Both",
-        "Color": "Cyan",
-        "Self ESP": true,
-        "Team ESP": true,
-        "Line width": 1.5,
-        "Range": 96.0
-      }
-    },
-    "Tracers": {
-      "key": -1,
-      "settings": {
-        "Anchor": "Crosshair",
-        "Color": "Cyan",
-        "Players": true,
-        "Containers": false,
-        "Range": 96.0
-      }
-    },
-    "Health Display": {
-      "key": -1,
-      "settings": {
-        "Mode": "Text + Bar",
-        "Show max health": true,
-        "Self": true,
-        "Range": 64.0
-      }
-    },
-    "Hitbox Display": {
-      "key": -1,
-      "settings": {
-        "Show": "Both",
-        "Client color": "Cyan",
-        "Server color": "Red",
-        "All living entities": true,
-        "Eye line": false,
-        "Range": 48.0
-      }
-    },
-    "Chams": {
-      "key": -1,
-      "settings": {
-        "Color": "Purple",
-        "Self (3rd person)": true
-      }
-    },
-    "X-ray": {
-      "key": -1,
-      "settings": {
-        "Opacity": 25.0
-      }
-    },
-    "Damage Indicators": {
-      "key": -1,
-      "settings": {
-        "Range": 48.0
-      }
-    },
-    "Trajectory": {
-      "key": -1,
-      "settings": {
-        "Color": "Cyan",
-        "Bow at full draw when idle": false
-      }
-    },
-    "Storage ESP": {
-      "key": -1,
-      "settings": {
-        "Chests": true,
-        "Ender chests": true,
-        "Shulker boxes": true,
-        "Barrels": true,
-        "Hoppers": false,
-        "Range": 64.0
-      }
-    },
-    "Hit Particles": {
-      "key": -1,
-      "settings": {
-        "Style": "Ring",
-        "Amount": 20.0
-      }
-    },
-    "Custom Sky": {
-      "key": -1,
-      "settings": {
-        "Preset": "Overcast",
-        "Fog Density": 1.6,
-        "Stars \u0026 Galaxies": false,
-        "Hide Sun/Moon": true,
-        "Hide Clouds": true,
-        "End Skybox Override": false,
-        "Particles": "Portal",
-        "Particle Density": 10.0
+        "Min delay (ms)": 0.0,
+        "Max delay (ms)": 0.0,
+        "Rotation": "Server",
+        "Swap back": true
       }
     },
     "Auto Tool": {
@@ -345,42 +94,44 @@
         "Swap back": true
       }
     },
-    "Auto Eat": {
+    "Quick Transfer": {
       "key": -1,
       "settings": {
-        "Eat at hunger": 14.0,
-        "Or health below": 10.0
-      }
-    },
-    "Fast Place": {
-      "key": -1,
-      "settings": {
-        "Delay (ticks)": 0.0,
-        "Blocks only": true
-      }
-    },
-    "Inventory Move": {
-      "key": -1,
-      "settings": {}
-    },
-    "Quick Loot": {
-      "key": -1,
-      "settings": {
-        "Items per tick": 2.0,
+        "Speed (items/s)": 25.0,
         "Keep hotbar": false
+      }
+    },
+    "Player ESP": {
+      "key": -1,
+      "settings": {
+        "Style": "Outline",
+        "Color": "Red",
+        "Teammates green": true,
+        "Range": 96.0
+      }
+    },
+    "Hit Effect": {
+      "key": -1,
+      "settings": {
+        "Color": "Purple",
+        "Size": 1.5
+      }
+    },
+    "Fullbright": {
+      "key": -1,
+      "settings": {
+        "Clear water/lava fog": true
+      }
+    },
+    "Motion Blur": {
+      "key": 72,
+      "settings": {
+        "Strength": 1.0
       }
     },
     "Free Look": {
       "key": 342,
       "settings": {}
-    },
-    "Fake Player": {
-      "key": -1,
-      "settings": {
-        "Movement": "Stationary",
-        "Armor": "Netherite",
-        "Walk speed": 0.3
-      }
     }
   }
 }
