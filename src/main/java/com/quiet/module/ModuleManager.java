@@ -32,7 +32,6 @@ public final class ModuleManager {
 
 		add(new Sprint());
 		add(new SafeWalk());
-		add(new Scaffold());
 		add(new AutoTool());
 		add(new QuickTransfer());
 

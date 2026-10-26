@@ -1,0 +1,27 @@
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 11670,
+      "minecraft:walk_one_cm": 4435,
+      "minecraft:leave_game": 1,
+      "minecraft:damage_taken": 1145,
+      "minecraft:play_time": 11670,
+      "minecraft:damage_dealt": 10,
+      "minecraft:damage_absorbed": 307,
+      "minecraft:jump": 13,
+      "minecraft:time_since_death": 11670,
+      "minecraft:sprint_one_cm": 3311,
+      "minecraft:fall_one_cm": 4299,
+      "minecraft:total_world_time": 12828,
+      "minecraft:fly_one_cm": 4116
+    },
+    "minecraft:used": {
+      "minecraft:totem_of_undying": 8
+    },
+    "minecraft:broken": {
+      "minecraft:iron_chestplate": 1,
+      "minecraft:iron_leggings": 1
+    }
+  },
+  "DataVersion": 4671
+}

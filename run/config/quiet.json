@@ -1,17 +1,17 @@
 {
   "arraylist": true,
   "menu": {
-    "x": 130,
-    "y": 107,
-    "tab": 3
+    "x": 73,
+    "y": 65,
+    "tab": 0
   },
   "modules": {
     "Auto Clicker": {
       "key": -1,
       "settings": {
         "Mode": "Cooldown",
-        "CPS": 20.0,
-        "Cooldown %": 87.0,
+        "CPS": 10.0,
+        "Cooldown %": 92.0,
         "Deviation %": 50.0
       }
     },
@@ -67,7 +67,7 @@
     "Auto Totem": {
       "key": -1,
       "settings": {
-        "Delay (ticks)": 6.0,
+        "Delay (ticks)": 5.0,
         "Use inventory": true
       }
     },
@@ -77,15 +77,8 @@
     },
     "Safe Walk": {
       "key": -1,
-      "settings": {}
-    },
-    "Scaffold": {
-      "key": -1,
       "settings": {
-        "Min delay (ms)": 0.0,
-        "Max delay (ms)": 0.0,
-        "Rotation": "Server",
-        "Swap back": true
+        "Moonwalk Only": false
       }
     },
     "Auto Tool": {
@@ -124,7 +117,7 @@
       }
     },
     "Motion Blur": {
-      "key": 72,
+      "key": -1,
       "settings": {
         "Strength": 1.0
       }

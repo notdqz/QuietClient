@@ -1,0 +1,36 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:wooden_sword": 16,
+      "minecraft:totem_of_undying": 2
+    },
+    "minecraft:killed": {
+      "minecraft:zombie": 2,
+      "minecraft:skeleton": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:bone": 2,
+      "minecraft:rotten_flesh": 4
+    },
+    "minecraft:dropped": {
+      "minecraft:rotten_flesh": 4,
+      "minecraft:bone": 2
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 8487,
+      "minecraft:walk_one_cm": 5127,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 3,
+      "minecraft:damage_taken": 470,
+      "minecraft:play_time": 8487,
+      "minecraft:damage_dealt": 598,
+      "minecraft:damage_absorbed": 40,
+      "minecraft:jump": 16,
+      "minecraft:time_since_death": 8487,
+      "minecraft:drop": 6,
+      "minecraft:total_world_time": 19435,
+      "minecraft:fly_one_cm": 289
+    }
+  },
+  "DataVersion": 4671
+}

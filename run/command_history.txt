@@ -1,24 +1,3 @@
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/time set day
-/weather clear
 /time set day
 /time set night
 /time set day
@@ -47,4 +26,25 @@
 /weather clear
 /time set day
 /weather clear
+/time set day
+/time set night
+/time set day
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/time set day
+/enchant Player769 minecraft:sweeping_edge 4
+/enchant Player769 minecraft:sweeping_edge 3
+/kill @e[type=!minecraft:player]
 /time set day
